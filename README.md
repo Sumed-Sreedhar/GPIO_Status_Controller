@@ -1,112 +1,95 @@
-GPIO-Driven Status Controller (STM32)
-Overview:
+# GPIO-Driven Status Controller (STM32)
 
-*This project implements a basic GPIO status controller on the STM32F446RE to understand how inputs, outputs, polling, debouncing, and interrupts work at a fundamental level.
+**Status:** Completed and tested on hardware | STM32F446RE
 
-*The project was designed as a foundational embedded systems exercise before moving to fully event-driven architectures.
+---
 
+## What It Does
+A **foundational GPIO control project** built to understand how **inputs, outputs, polling, debouncing, and interrupts** work at a fundamental level on the STM32 platform.
 
-Hardware Used:
+- Reads button input using polling and/or EXTI interrupts  
+- Controls LED output directly based on input conditions  
+- Applies software debouncing to prevent false triggers  
 
-*STM32F446RE (Nucleo)
+This project was intentionally designed as a **learning baseline** before transitioning to fully event-driven and state-based architectures.
 
-*Push button(s)
+---
 
-*LED(s)
+## Hardware Used
+- **MCU:** STM32F446RE (Nucleo)
+- **Inputs:** Push button(s)
+- **Outputs:** LED(s)
+- **Debug:** On-board ST-Link debugger
 
-*On-board ST-Link debugger
+---
 
+## Core Concepts Demonstrated
+- GPIO input and output configuration  
+- Polling vs interrupt-based input handling  
+- Software debouncing techniques  
+- Basic timer usage  
+- Interrupt flow and callback execution  
+- Hardware vs software responsibility separation  
 
-Core Concepts Demonstrated:
+---
 
-*GPIO input and output configuration
+## System Behavior
+- Button input is read using **polling and/or EXTI interrupts**
+- Button presses directly change the **LED state**
+- Debouncing logic is applied to avoid false triggers
+- Output behavior is controlled immediately in response to inputs
 
-*Polling vs interrupt-based input handling
+This project focuses on **correct signal handling and reliability**, not architectural abstraction.
 
-*Software debouncing
+---
 
-*Basic timer usage
-
-*Interrupt flow and callbacks
-
-*Understanding hardware vs software responsibilities
-
-
-System Behavior:
-
-*Button input is read using polling and/or EXTI interrupts
-
-*Button presses change the LED status
-
-*Debouncing logic is applied to avoid false triggers
-
-*LED behavior is controlled directly based on input conditions
-
-*This project focuses on correct signal handling, not advanced state abstraction.
-
-
-Design Intent:-
-
+## Design Intent
 The goal of this project was to:
 
-*Build confidence with STM32 GPIO configuration
+- Build confidence with STM32 GPIO configuration  
+- Understand practical differences between polling and interrupts  
+- Learn how debouncing works in real hardware  
+- Observe interrupt execution and callback behavior  
+- Create a working, hardware-validated embedded system  
 
-*Understand how polling differs from interrupts
+Logic was intentionally kept simple to avoid premature abstraction.
 
-*Learn how debouncing works in practice
+---
 
-*Observe interrupt execution and callback behavior
+## What I Learned
+- How GPIO inputs behave electrically  
+- Why debouncing is necessary in real systems  
+- How EXTI interrupts are triggered and handled  
+- The difference between polling loops and interrupt-driven logic  
+- How STM32 HAL structures initialization and callbacks  
 
-*Create a working hardware-validated system
+---
 
-*This project intentionally keeps logic simple to avoid premature abstraction.
+## Limitations
+- Logic is tightly coupled to input handling  
+- LED control occurs directly in response to inputs  
+- Not scalable for complex or multi-mode behaviors  
 
+These limitations were **intentional** and later addressed in follow-up projects.
 
-What I Learned:
+---
 
-*How GPIO inputs behave electrically
-
-*Why debouncing is necessary
-
-*How EXTI interrupts are triggered and handled
-
-*The difference between polling loops and interrupt-driven logic
-
-*How STM32 HAL structures initialization and callbacks
-
-
-Limitations:
-
-*Logic is tightly coupled to input handling
-
-*LED control occurs directly in response to inputs
-
-*Not scalable for complex behaviors
-
-These limitations were intentional and later addressed in follow-up projects.
-
-
-Follow-Up Work:
-
+## Follow-Up Work
 This project served as the foundation for:
 
-*Event-driven LED controller using EXTI + timers
+- Event-driven LED controller using EXTI + timers  
+- Proper state machine–based designs  
+- Single-point hardware control architectures  
 
-*Proper state machine–based designs
+---
 
-*Single-point hardware control architectures
+## Tools & Environment
+- STM32CubeIDE  
+- STM32 HAL  
+- Linux development environment  
+- Git & GitHub for version control  
 
+---
 
-Tools & Environment:
-
-*STM32CubeIDE
-
-*STM32 HAL
-
-*Linux (development environment)
-
-*Git & GitHub for version control
-
-
-Status:
+## Status
 Completed and tested on hardware.
