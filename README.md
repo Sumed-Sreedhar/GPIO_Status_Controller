@@ -76,7 +76,6 @@ These limitations were **intentional** and later addressed in follow-up projects
 
 ## Follow-Up Work
 This project served as the foundation for:
-
 - Event-driven LED controller using EXTI + timers  
 - Proper state machine–based designs  
 - Single-point hardware control architectures  
@@ -88,6 +87,18 @@ This project served as the foundation for:
 - STM32 HAL  
 - Linux development environment  
 - Git & GitHub for version control  
+
+---
+
+## Repository Structure
+```
+GPIO_Status_Controller/
+├── Core/
+│   ├── Src/
+│   └── Inc/
+├── README.md
+└── ...
+```
 
 ---
 
